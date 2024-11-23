@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Sinh Viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        .success {
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thêm Sinh Viên Mới</h1>
+        <form method="post">
+            <label for="mssv">MSSV:</label>
+            <input type="text" id="mssv" name="mssv" required>
+            
+            <label for="ten">Tên:</label>
+            <input type="text" id="ten" name="ten" required>
+            
+            <label for="diem">Điểm:</label>
+            <input type="number" id="diem" name="diem" required>
+            
+            <label for="nganh">Ngành:</label>
+            <input type="text" id="nganh" name="nganh" required>
+            
+            <label for="sdt">Số Điện Thoại:</label>
+            <input type="tel" id="sdt" name="sdt" required>
+            
+            <button type="submit">Thêm Sinh Viên</button>
+        </form>
+        
+        {% if success %}
+            <p class="success">{{ success }}</p>
+        {% endif %}
+        
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{{ url_for('giaodienchinh') }}">Trở lại Trang Chính</a>
+        </div>
+    </div>
+</body>
+</html>
